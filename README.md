@@ -5,7 +5,7 @@
 為了確保Transformer輸出的結果為合理的音樂，我需要另一個Model檢查其輸出的序列，因此我選擇使用GAN(GAN（Generative Adversarial Network)。GAN主要分成兩個部分--Generator和Discriminator，Generator負責生成，Discriminator負責判別。將Transformer視作Generator，而Discriminator 可以用一般的neural network即可。 
 
 ## Transformer
-![alt text](/asset//Transformer.png)
+![alt text](/asset//Transformer.png){width: 500px}
 
 Transformer是一種用於處理序列數據（如自然語言處理）的深度學習模型。它是由 Google Brain 團隊在 2017 年提出，並迅速成為許多 NLP 任務（如機器翻譯、文本生成和文本分類）的主流方法。Transformer 模型的核心創新是使用自注意力機制來處理輸入數據，克服了傳統 RNN 和 LSTM 模型在處理長距離依賴時的局限性。
 
