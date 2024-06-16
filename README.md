@@ -1,2 +1,14 @@
 # Generating_Music
-Generate Music with GAN (Transformer as the generator)
+
+音樂就像語言，可以把一段旋律想像成一連串的音符序列，而句子也是由單字組成的序列，所以音樂也應該可以用Seq2Seq的模型進行訓練並生成新的音樂。由這想法延伸出我對Seq2Seq模型訓練音樂的興趣，因此開始著手研究Seq2Seq最著名的代表--Transformer。
+
+為了確保Transformer輸出的結果為合理的音樂，我需要另一個Model檢查其輸出的序列，因此我選擇使用GAN(GAN（Generative Adversarial Network)。GAN主要分成兩個部分--Generator和Discriminator，Generator負責生成，Discriminator負責判別。將Transformer視作Generator，而Discriminator 可以用一般的neural network即可。 
+
+## Transformer
+![alt text](/asset//Transformer.png)
+
+Transformer是一種用於處理序列數據（如自然語言處理）的深度學習模型。它是由 Google Brain 團隊在 2017 年提出，並迅速成為許多 NLP 任務（如機器翻譯、文本生成和文本分類）的主流方法。Transformer 模型的核心創新是使用自注意力機制來處理輸入數據，克服了傳統 RNN 和 LSTM 模型在處理長距離依賴時的局限性。
+
+Transformer 最核心的技術是在Self-Attention機制，它允許每個輸入位置的表示能夠考慮整個輸入序列中的所有位置。這使得模型能夠靈活地捕捉長距離的依賴關係。Self-Attention主要是透過計算Query、Key和Value三者之間的相似度來實現。Multi-Head Attention則是以Self-Attention延伸出的概念，每一個head都有自己的Query、Key和Value通過並行的多個注意力機制來提高模型的能力，這使得模型可以從不同的子空間中學習到更多的信息。
+
+有了Self-Attention機制，Transformer可以更有效地捕捉序列中長距離的依賴關係，因此我用Transformer來訓練從Magenta得到的midi資料，選擇使用midi檔案做為資料的原因是其儲存音樂的方式。midi儲存每一個音符的音調、強度、時間等詳細資訊，有了這些資訊每一段曲詳細的編排資料都可以清清楚楚輸入到模型中進行訓練。
